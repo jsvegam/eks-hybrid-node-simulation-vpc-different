@@ -9,7 +9,7 @@ resource "null_resource" "enable_remote_network_config" {
 
   provisioner "local-exec" {
     interpreter = ["/bin/bash", "-lc"]
-    command = <<-EOC
+    command     = <<-EOC
       set -euo pipefail
       echo "[INFO] Checking remoteNetworkConfig for cluster ${var.cluster_name} in ${var.aws_region}"
       CURRENT=$(aws eks describe-cluster --region "${var.aws_region}" --name "${var.cluster_name}" --query 'cluster.remoteNetworkConfig' --output json || echo null)

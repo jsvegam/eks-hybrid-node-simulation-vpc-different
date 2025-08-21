@@ -4,7 +4,7 @@
 # Outputs para facilitar la configuración manual
 output "manual_route_instructions" {
   description = "Instructions for manual route configuration"
-  value = <<-EOT
+  value       = <<-EOT
     Para completar la configuración de red, ejecuta estos comandos MANUALMENTE:
 
     # Rutas desde Hybrid VPC hacia EKS VPC

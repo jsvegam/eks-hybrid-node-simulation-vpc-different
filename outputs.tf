@@ -31,5 +31,5 @@ output "eks_cluster_endpoint" {
 output "deployment_status" {
   description = "Estado de la implementación"
   value       = "Completado - Todos los recursos creados en el orden correcto"
-  depends_on  = [null_resource.validation]
+  #depends_on  = [null_resource.validation]
 }

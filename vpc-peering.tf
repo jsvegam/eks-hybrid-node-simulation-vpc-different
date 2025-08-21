@@ -16,18 +16,18 @@ module "hybrid_vpc" {
   enable_dns_support   = true
 
   tags = merge(var.tags, {
-    "eks-hybrid" = "true"
-    "Terraform"  = "true"
+    "eks-hybrid"  = "true"
+    "Terraform"   = "true"
     "Environment" = "test"
   })
 
   private_subnet_tags = {
-    "Tier" = "Private"
+    "Tier"                            = "Private"
     "kubernetes.io/role/internal-elb" = "1"
   }
 
   public_subnet_tags = {
-    "Tier" = "Public"
+    "Tier"                   = "Public"
     "kubernetes.io/role/elb" = "1"
   }
 }
