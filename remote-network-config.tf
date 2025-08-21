@@ -1,6 +1,5 @@
 # Attempt to enable remoteNetworkConfig on the cluster (required for Hybrid Nodes).
 # This uses AWS CLI because provider support may lag.
-data "aws_caller_identity" "current" {}
 
 resource "null_resource" "enable_remote_network_config" {
   triggers = {
