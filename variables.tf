@@ -77,4 +77,18 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
+# IP pública desde la cual permitir SSH directo al nodo híbrido.
+# Déjala vacía ("") para NO abrir SSH desde Internet.
+variable "ssh_ingress_cidr" {
+  description = "Tu IP pública /32 para SSH directo (ej: 203.0.113.45/32). Vacío para deshabilitar."
+  type        = string
+  default     = ""
 
+  validation {
+    condition     = var.ssh_ingress_cidr == "" || can(regex("^\\d{1,3}(?:\\.\\d{1,3}){3}/32$", var.ssh_ingress_cidr))
+    error_message = "ssh_ingress_cidr debe ser vacío o una IP en formato x.x.x.x/32."
+  }
+}
+
+
+# (Nada más aquí; mantenemos tus variables actuales)

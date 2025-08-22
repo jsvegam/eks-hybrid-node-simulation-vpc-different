@@ -33,3 +33,8 @@ output "deployment_status" {
   value       = "Completado - Todos los recursos creados en el orden correcto"
   #depends_on  = [null_resource.validation]
 }
+
+output "hybrid_vpc_cidr" {
+  value       = module.hybrid_vpc.vpc_cidr_block
+  description = "CIDR de la VPC híbrida (usado en remoteNetworkConfig)"
+}
